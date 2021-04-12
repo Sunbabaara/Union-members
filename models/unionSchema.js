@@ -5,7 +5,7 @@ const unionSchema=mongoose.Schema({
         type: String,
         required: true
     },
-        program: {
+    program: {
         type: String,
         required: true
     },

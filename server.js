@@ -2,6 +2,7 @@ const express = require("express");
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const connectDB = require("./config/connectDB");
+const unionRoutes = require ("./routes/unionRoutes")
 
 dotenv.config();
 
@@ -11,6 +12,9 @@ connectDB();
 
 //middlewares
 app.use(morgan("dev"));
+
+//routes
+app.use("/api/v3/union", unionRoutes)
 
 
 //home
