@@ -1,6 +1,6 @@
 const mongoose = require("mongoose")
 
-const unionSchema=mongoose.Schema({
+const unionSchema= new mongoose.Schema({
     name: {
         type: String,
         required: true

@@ -1,33 +1,33 @@
-const Member =require("../models/unionSchema");
+const Union =require("../models/unionSchema");
 
 // create member
 const createMember = async (req, res)=>{
-    const newMember= new Member(
+    const newMember= new Union(
         {
             name: req.body.name,
-            program: req.body.destination,
-            level:req.body.email,
-            email:  req.body.dob,
+            program: req.body.program,
+            level:req.body.level,
+            email:  req.body.email,
         } )
         await newMember.save()
         res.status(201).json(newMember);
     };
 
     const getAllMembers = async(req, res)=>{
-        const Member = await Member.find();
+        const Union = await Union.find();
         res.json(Members);
     }
      
-    //get a Member
+    //get a Union
     const getSingleMember = async (req, res)=>{
-          const trainee =await Member.findById(req.params._id)
-          res.json(Member);
+          const unionMember =await Union.findById(req.params._id)
+          res.json(Union);
     
     };
     
-    //update a Member
+    //update a Union
     const  updateMember = async (req, res)=>{
-        const foundMember = await Trainee.findById(req.params._id)
+        const foundMember = await Union.findById(req.params._id)
         if (foundMember) {
             foundMember.name = req.body.name,
             foundMember.destination = req.body.program,
@@ -39,14 +39,14 @@ const createMember = async (req, res)=>{
         }
     }
     
-    //delete a Member
+    //delete a Union
     const deleteMember = async (req, res)=>{
-        const foundMember = await Member.findById(req.params._id)
+        const foundMember = await Union.findById(req.params._id)
         if (foundMember) {
             foundMember.remove()
             res.json({msg:`${foundMember.name} removed`})
         } else {
-            res.status(404).json({error:"Member not found"})
+            res.status(404).json({error:"Union not found"})
         }
     }
 

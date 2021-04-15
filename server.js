@@ -11,6 +11,7 @@ const app = express();
 connectDB();
 
 //middlewares
+app.use(express.json())
 app.use(morgan("dev"));
 
 //routes
